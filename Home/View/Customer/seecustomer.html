@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>客户查看</title>                       <!--网页标题-->
+        <meta name="description" content="客户查看">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="客户查看">    <!--搜索关键词-->
+        <link rel="stylesheet" href="__Css__/bootstrap.min.css">
+        <link rel="stylesheet" href="__Css__/index.css">
+        <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	</head>
+<body>
+	<include file="Public/menu" />
+    <div class="container">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">客户编号</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">客户名称</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">联系人</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">联系电话</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属公司</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所在地</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">公司地址</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属伙伴</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">添加时间</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">操作</p></div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <foreach name="result" item="v">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$v.id}</p></div>
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">
+                <a class="btn btn-default" href="{:U('/Home/Customer/seeremarks',array('id'=>$v['id']))}">
+                  {$v.gname}
+                </a></p></div>
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$v.name}</p></div>
+              <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">{$v.tel}</p></div>
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$v.ca}</p></div>
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$v.location}</p></div>
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$v.address}</p></div>
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">
+                <foreach name="username" item="n">
+                  <if condition="($v['uid'] eq $n['id'])"> {$n.name}</if>
+                </foreach>
+              </p></div>
+              <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$v.date|date="Y-m-d h:i",###}</p></div>
+              <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">
+                <a class="btn btn-primary" href="{:U('/Home/Customer/inscustomer',array('id'=>$v['id']))}">
+                  修改</a>
+                <a class="btn btn-warning" href="{:U('/Home/Customer/addseas',array('id'=>$v['id']))}">
+                  丢进公海</a>
+                </p></div>
+            </div>
+          </foreach>
+        </div>
+        <div class="panel-footer">
+          <a class="btn btn-success abottom" href="{:U('/Home/Customer/seeseas')}">查看公海</a>
+          {$page}
+        </div>
+      </div>
+    </div>
+<include file="Public/footer" />
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="__Js__/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="__Js__/bootstrap.min.js"></script>
+</body>
+</html>

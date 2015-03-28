@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>公告管理</title>                       <!--网页标题-->
+        <meta name="description" content="公告管理">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="公告管理">    <!--搜索关键词-->
+        <link rel="stylesheet" href="__Css__/bootstrap.min.css">
+ 		<link rel="stylesheet" href="__Css__/notice/delnotice.css">
+        <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	</head>
+<body>
+	<include file="Public/menu" />
+	<form action="{:U('/Home/Index/delnoticeform')}" method="post">
+		<div class="container">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-2 col-sm-2 col-md-1">
+							<p class="text-center">#</p>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-1">
+							<p class="text-center">ID</p>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2">
+							<p class="text-center">发布人</p>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2">
+							<p class="text-center">发布时间</p>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-6">
+							<p class="text-center">发布内容</p>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<foreach name="result" item="v">
+						<div class="row ">
+							<div class="col-xs-2 col-sm-2 col-md-1 notice-body">
+								<label><input type="checkbox" name="delid[]" id="id" value="{$v.id}"></label>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-1 notice-body">
+								<p class="text-center">{$v.id}</p>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-2 notice-body">
+								<p class="text-center">{$v.username}({$v.name})</p>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-2 notice-body">
+								<p class="text-center">{$v.addtime|date="Y-m-d H:i",###}</p>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-6 notice-body notice-text">
+								<p class="text-center">{$v.text}</p>
+							</div>
+						</div>
+					</foreach>
+				</div>
+				<div class="panel-footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-4 col-sm-4 col-md-4 col-offset-xs-2 col-offset-sm-2 col-offset-md-2">
+								<input class="btn btn-danger" type="submit" value="删除">
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-4">
+								{$page}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>	
+<include file="Public/footer" />
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="__Js__/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="__Js__/bootstrap.min.js"></script>
+</body>
+</html>
