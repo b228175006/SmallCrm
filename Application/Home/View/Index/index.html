@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Small-Phoenix CRM</title>                       <!--网页标题-->
+        <meta name="description" content="管理首页">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="管理首页">    <!--搜索关键词-->
+        <link rel="stylesheet" href="__Css__/bootstrap.min.css">
+        <link rel="stylesheet" href="__Css__/index.css">
+        <link rel="shortcut icon" type="image/x-icon" href="__Image__/favicon.ico" />
+        <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	</head>
+<body>
+<include file="Public/menu" />
+
+<div class="container">
+  <div class="row">
+    <foreach name="require" item="v">
+      <div class="col-md-4 col-sm-6 col-xs-12 notice panel panel-info">
+        <div class="row noticeheader panel-heading">
+          <div class="col-md-6 col-xs-6">
+            <p class="text-center"><strong>发布人</strong></p>
+            <p class="text-center"><strong>{$v.username}({$v.name})</strong></p>
+          </div>
+          <div class="col-md-6 col-xs-6 ">
+            <p class="text-center"><strong>发布时间</strong></p>
+            <p class="text-center"><strong>{$v.addtime|date="Y-m-d H:i",###}</strong></p>
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 noticebody panel-body">
+          <pre class="text-left text-muted">{$v.text}</pre>
+        </div>
+      </div>
+    </foreach>
+    <div class="col-md-12 col-xs-12">
+        {$page}
+    </div>
+  </div>
+</div> 
+<include file="Public/footer" />
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="__Js__/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="__Js__/bootstrap.min.js"></script>
+</body>
+</html>	

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE渲染模式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 初始化移动浏览显示 -->
+    <title>系统设置</title> <!-- 网页标题 -->
+    <meta name="description" content="系统设置">
+    <meta name="keywords" content="系统设置">
+
+    <link rel="stylesheet" href="__Css__/bootstrap.min.css">
+ 	<link rel="stylesheet" href="__Css__/index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="__Image__/favicon.ico" />
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <include file="Public/menu" />
+	<form action="{:U('/Home/System/inssystem')}" method="post">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h4>客户表单设置</h4>
+              </div>
+              <div class="panel-body">
+                <div class="formgroup">
+                  <label for="value1" class="control-label"></label>
+                  <input type="text" name="value1" id="value1" value="{$system.0.value1}" class="form-control">
+                  
+                </div>
+                <div class="formgroup">
+                  <label for="value2" class="control-label"></label>
+                  <input type="text" name="value2" id="value2" value="{$system.0.value2}" class="form-control">
+                  
+                </div>
+                <div class="formgroup">
+                  <label for="value3" class="control-label"></label>
+                  <input type="text" name="value3" id="value3" value="{$system.0.value3}" class="form-control">
+                  
+                </div>
+                <div class="formgroup">
+                  <label for="value4" class="control-label"></label>
+                  <input type="text" name="value4" id="value4" value="{$system.0.value4}" class="form-control">
+                  
+                </div>
+                <div class="formgroup">
+                  <label for="value5" class="control-label"></label>
+                  <input type="text" name="value5" id="value5" value="{$system.0.value5}" class="form-control">
+                  
+                </div>
+                <div class="formgroup">
+                  <label for="value6" class="control-label"></label>
+                  <input type="text" name="value6" id="value6" value="{$system.0.value6}" class="form-control">
+                  
+                </div>
+                <div class="formgroup">
+                  <br>
+                  <input type="hidden" name="id"  value="{$system.0.id}">
+                  <input class="btn btn-info" type="submit" value="修改">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  	</form>
+<include file="Public/footer" />
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="__Js__/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="__Js__/bootstrap.min.js"></script>
+</body>
+</html>

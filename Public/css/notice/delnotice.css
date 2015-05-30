@@ -1,0 +1,25 @@
+body{
+	padding-top:60px;
+	padding-bottom:30px;
+	width:85%;
+	margin:0px auto;
+}
+.navbar-header img{
+            padding:0 15px 0 15px;
+}
+.notice-body{
+	border-bottom:1px dotted black;
+	height:40px;
+	line-height:2.1;
+}
+.notice-body input{
+	margin-top:9px;
+}
+.notice-text{
+	height:40px;
+	overflow:auto;
+	overflow-x:hidden;
+}
+.panel-footer input{
+	margin:20px;
+}

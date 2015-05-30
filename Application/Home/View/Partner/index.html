@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>修改密码</title>                       <!--网页标题-->
+        <meta name="description" content="修改密码">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="修改密码">    <!--搜索关键词-->
+        <link rel="stylesheet" href="__Css__/bootstrap.min.css">
+ 		<link rel="stylesheet" href="__Css__/index.css">
+ 		<link rel="shortcut icon" type="image/x-icon" href="__Image__/favicon.ico" />
+        <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	</head>
+<body>
+<include file="Public/menu" />
+	<form action="{:U('/Home/Partner/inspassword')}" method="post">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<p class="text-center">修改密码</p>
+						</div>
+						<div class="penel-body">
+							<div class="form-group">
+								<label for="oldpsw" class="control-label">原密码：</label>
+								<input type="password" name="oldpsw" id="oldpsw" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="newpsw" class="control-label">新密码：</label>
+								<input type="password" name="newpsw" id="newpsw" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="newpsw2" class="control-label">确认新密码：</label>
+								<input type="password" name="newpsw2" id="newpsw2" class="form-control">
+							</div>
+							<div class="panel-footer">
+								<input class="btn btn-info" type="submit" value="确认修改">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</form>
+<include file="Public/footer" />
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="__Js__/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="__Js__/bootstrap.min.js"></script>		
+</body>
+</html>
