@@ -7,9 +7,9 @@
 		<title>修改客户信息</title>                       <!--网页标题-->
         <meta name="description" content="修改客户信息">  <!--网页介绍-->
         <META NAME ="keywords" CONTENT="修改客户信息">    <!--搜索关键词-->
-        <link rel="stylesheet" href="/smallcrm/Public/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/smallcrm/Public/css/index.css">
-        <link rel="shortcut icon" type="image/x-icon" href="/smallcrm/Public/image/favicon.ico" />
+        <link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/SmallCrm/Public/image/favicon.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -41,8 +41,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="/smallcrm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
-      <img src="/smallcrm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/SmallCrm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/SmallCrm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -145,10 +145,8 @@
                 <div class="formgroup">
                   <label for="uid" class="control-label">所属人：</label>
                   <select name="uid" id="uid" class="form-control">
-                    <?php if(is_array($uid)): foreach($uid as $key=>$v): if($userid == $v.id): ?><!-- <option value="<?php echo ($v["id"]); ?>" selected="selected"><?php echo ($v["name"]); ?></option> -->
-                        <option value=""><?php echo ($userid); ?>+<?php echo ($v["id"]); ?></option>
-                      <?php else: ?>
-                        <option value="<?php echo ($v["id"]); ?>"><?php echo ($v["name"]); ?></option><?php endif; endforeach; endif; ?>
+                    <option value="now" selected="selected">不修改</option>
+                    <?php if(is_array($uid)): foreach($uid as $key=>$v): ?><option value="<?php echo ($v["id"]); ?>"><?php echo ($v["name"]); ?></option><?php endforeach; endif; ?> 
                   </select> 
                 </div>
                 <div class="formgroup">
@@ -166,7 +164,7 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-md-8">
-					<p>© 四川众合世纪网络技术有限公司，版本号：v1.32 Beta</p>
+					<p>© 四川众合世纪网络技术有限公司，版本号：v1.40 Beta</p>
 				</div>
 				<div class="col-md-4">
 					<p class="pull-right">Coding by Luoye~</p>
@@ -176,9 +174,9 @@
 	</div>
 </footer>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/smallcrm/Public/js/jquery.min.js"></script>
+<script src="/SmallCrm/Public/js/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="/smallcrm/Public/js/bootstrap.min.js"></script>
+<script src="/SmallCrm/Public/js/bootstrap.min.js"></script>
 </body>
 </html>

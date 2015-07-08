@@ -134,15 +134,26 @@ Class CustomerController extends CommonController{
 		if(!IS_POST) E('无效的页面');
 		$needadmin = needadmin();
 		$this->assign('needadmin',$needadmin);
-		$data = array(
-			'gname'=> I('gname'),
-			'name'=> I('name') ,
-			'tel'=> I('tel'),
-			'ca'=> I('ca'),
-			'location'=> I('location'),
-			'address'=> I('address'),
-			'uid'=>I('uid')
+		if (I('uid') == 'now') {
+			$data = array(
+				'gname'=> I('gname'),
+				'name'=> I('name') ,
+				'tel'=> I('tel'),
+				'ca'=> I('ca'),
+				'location'=> I('location'),
+				'address'=> I('address')
 			);
+		}else{
+			$data = array(
+				'gname'=> I('gname'),
+				'name'=> I('name') ,
+				'tel'=> I('tel'),
+				'ca'=> I('ca'),
+				'location'=> I('location'),
+				'address'=> I('address'),
+				'uid'=>I('uid')
+			);
+		}
 		$where=array(
 			'id'=>I('id'));
 		$db = M('customer');

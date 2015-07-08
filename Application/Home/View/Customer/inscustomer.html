@@ -53,9 +53,10 @@
                 <div class="formgroup">
                   <label for="uid" class="control-label">所属人：</label>
                   <select name="uid" id="uid" class="form-control">
+                    <option value="now" selected="selected">不修改</option>
                     <foreach name="uid" item="v">
-                        <option value="{$v.id}">{$v.name}</option>
-                    </foreach>
+                      <option value="{$v.id}">{$v.name}</option>
+                    </foreach> 
                   </select> 
                 </div>
                 <div class="formgroup">
