@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>客户查看</title>                       <!--网页标题-->
-        <meta name="description" content="客户查看">  <!--网页介绍-->
-        <META NAME ="keywords" CONTENT="客户查看">    <!--搜索关键词-->
+		<title>搜索结果</title>                       <!--网页标题-->
+        <meta name="description" content="搜索结果">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="搜索结果">    <!--搜索关键词-->
         <link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
         <link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
-        <link rel="shortcut icon" type="image/x-icon"  href="/SmallCrm/Public/image/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="/SmallCrm/Public/image/favicon.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -141,19 +141,19 @@
       <div class="panel panel-info">
         <div class="panel-heading">
           <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value1"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value2"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value3"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value4"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value5"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value6"]); ?></p></div>
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">客户名称</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">联系人</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">联系电话</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属公司</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所在地</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">公司地址</p></div>
             <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属伙伴</p></div>
             <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">添加时间</p></div>
             <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">操作</p></div>
           </div>
         </div>
         <div class="panel-body">
-          <?php if(is_array($result)): foreach($result as $key=>$v): ?><div class="row">
+          <?php if(is_array($searched)): foreach($searched as $key=>$v): ?><div class="row">
               <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
                 <a class="btn btn-default" href="<?php echo U('/Home/Customer/seeremarks',array('id'=>$v['id']));?>">
                   <?php echo ($v["gname"]); ?>
@@ -170,13 +170,15 @@
               <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
                 <a class="btn btn-primary" href="<?php echo U('/Home/Customer/inscustomer',array('id'=>$v['id']));?>">
                   修改</a>
-                <a class="btn btn-warning" href="<?php echo U('/Home/Customer/addseas',array('id'=>$v['id']));?>">
-                  丢进公海</a>
+                <?php if(($v['uid']) == 0): ?><a class="btn btn-success" href="<?php echo U('/Home/Customer/pickupseas',array('id'=>$v['id']));?>">提取客户</a>
+                 <?php else: ?>
+                 <a class="btn btn-warning" href="<?php echo U('/Home/Customer/addseas',array('id'=>$v['id']));?>">
+                  丢进公海</a><?php endif; ?>
+                
                 </p></div>
             </div><?php endforeach; endif; ?>
         </div>
         <div class="panel-footer">
-          <a class="btn btn-success abottom" href="<?php echo U('/Home/Customer/seeseas');?>">查看公海</a>
           <?php echo ($page); ?>
         </div>
       </div>

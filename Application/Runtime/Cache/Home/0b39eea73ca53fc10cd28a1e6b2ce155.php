@@ -1,15 +1,15 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="utf-8">
 	<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>客户查看</title>                       <!--网页标题-->
-        <meta name="description" content="客户查看">  <!--网页介绍-->
-        <META NAME ="keywords" CONTENT="客户查看">    <!--搜索关键词-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>查看备注</title>                       <!--网页标题-->
+        <meta name="description" content="查看备注">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="查看备注">    <!--搜索关键词-->
         <link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
-        <link rel="shortcut icon" type="image/x-icon"  href="/SmallCrm/Public/image/favicon.ico" />
+ 		<link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/SmallCrm/Public/image/favicon.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -109,78 +109,76 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    <div class="container">
-      <div class="row well well-sm">
-	<div class="col-xs-12 col-sm-6 col-md-4">
-		<form class="navbar-form navbar-left" role="search" action="<?php echo U('/Home/Search/searched');?>" method="post">
-			<div class="form-group">
-			  <input type="text" class="form-control" placeholder="搜索客户" name="searched">
-			</div>
-			  <input class="btn btn-success" type="submit" value="搜索">
-		</form>
-	</div>
-	<div class="col-xs-12 col-sm-6 col-md-8">
-		<form action="<?php echo U('/Home/Search/screening');?>" method="post" class="navbar-form navbar-right">
-			<div class="form-group">
-				<span>所属人：</span>
-				<select name="username" id="" class="form-control">
-					<option value="0">所有</option>
-					<?php if(is_array($result)): foreach($result as $key=>$v): if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; endforeach; endif; ?>
-				</select>
-				<span></span>
-				<span>添加日期：</span>
-				<input type="date" name="date1" id="">
-				<span>至</span>
-				<input type="date" name="date2" id="">
-				<input type="submit" value="筛选" class="btn btn-success">
-			</div>
-		</form>
-	</div>
-</div>
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value1"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value2"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value3"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value4"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value5"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value6"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属伙伴</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">添加时间</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">操作</p></div>
-          </div>
+	<form action="" method="post">
+		<div class="container">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <p class="text-center">
+                            <a class="btn btn-info" href="<?php echo U('/Home/Customer/inscustomer',array('id'=>$result['0']['id']));?>">修改</a>
+                            <a class="btn btn-success" href="<?php echo U('/Home/Customer/addremarks',array('id' =>$result['0']['id']));?>">添加备注</a></p>
+                        </div>
+                        <!-- <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center">客户名称</p></div>
+                        <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center">联系人</p></div>
+                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center">联系电话</p></div>
+                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center">所属公司</p></div>
+                        <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center">所在地</p></div>
+                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center">公司地址</p></div>
+                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center">操作</p></div> -->
+                    </div>
+                </div>
+                <div class="panel-body">
+                	<div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($system["0"]["value1"]); ?>：</p></div>
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($result["0"]["gname"]); ?></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($system["0"]["value2"]); ?>：</p></div>
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($result["0"]["name"]); ?></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($system["0"]["value3"]); ?>：</p></div>
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($result["0"]["tel"]); ?></p></div>
+                    </div>
+                    <div class="row">
+                         <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($system["0"]["value4"]); ?>：</p></div>
+                         <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($result["0"]["ca"]); ?></p></div>
+                    </div>  
+                    <div class="row">
+                         <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($system["0"]["value5"]); ?>：</p></div>
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($result["0"]["location"]); ?></p></div>
+                    </div>
+                    <div class="row">
+                         <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($system["0"]["value6"]); ?>：</p></div>
+                        <div class="col-xs-12 col-sm-6 col-md-6"><p class="text-center"><?php echo ($result["0"]["address"]); ?></p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-success">
+            	<div class="panel-heading">
+            		<h4>沟通备注</h4>
+            	</div>
+            	<div class="panel-body">
+            		<?php if(is_array($remarks)): foreach($remarks as $key=>$v): ?><div class="panel panel-warning">
+	            			<div class="panel-heading">
+	            				<p><strong>添加（修改）时间：</strong><?php echo (date("Y-m-d H:i",$v["time"])); ?></p>
+	            			</div>
+	            			<div class="panel-body remarks-body">
+	            				<pre class="text-center text-muted"><?php echo ($v["remarks"]); ?></pre>
+	            			</div>
+	            			<div class="panel-footer remark-footer">
+	            				<a class="btn btn-info remarka" href="<?php echo U('/Home/Customer/insremarks',array('id' => $v['id'],'uid' => $v['uid']));?>">修改</a>
+								<a class="btn btn-danger remarka" href="<?php echo U('/Home/Customer/delremarks',array('id' => $v['id'],'uid' => $v['uid']));?>">删除</a>
+	            			</div>
+	            		</div><?php endforeach; endif; ?>
+            	</div>
+                <div class="panel-footer">
+                    <?php echo ($page); ?>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-          <?php if(is_array($result)): foreach($result as $key=>$v): ?><div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
-                <a class="btn btn-default" href="<?php echo U('/Home/Customer/seeremarks',array('id'=>$v['id']));?>">
-                  <?php echo ($v["gname"]); ?>
-                </a></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["name"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center"><?php echo ($v["tel"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["ca"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["location"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["address"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center">
-                <?php if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): echo ($n["name"]); endif; endforeach; endif; ?>
-              </p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed "><p class="text-center"><?php echo (date("Y-m-d h:i",$v["date"])); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
-                <a class="btn btn-primary" href="<?php echo U('/Home/Customer/inscustomer',array('id'=>$v['id']));?>">
-                  修改</a>
-                <a class="btn btn-warning" href="<?php echo U('/Home/Customer/addseas',array('id'=>$v['id']));?>">
-                  丢进公海</a>
-                </p></div>
-            </div><?php endforeach; endif; ?>
-        </div>
-        <div class="panel-footer">
-          <a class="btn btn-success abottom" href="<?php echo U('/Home/Customer/seeseas');?>">查看公海</a>
-          <?php echo ($page); ?>
-        </div>
-      </div>
-    </div>
+	</form>
 <footer>
 	<div class="container">
 		<div class="row">

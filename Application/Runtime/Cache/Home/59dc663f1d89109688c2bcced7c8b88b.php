@@ -1,22 +1,22 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="utf-8">
 	<head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>客户管理</title>                       <!--网页标题-->
-        <meta name="description" content="客户查看">  <!--网页介绍-->
-        <META NAME ="keywords" CONTENT="客户查看">    <!--搜索关键词-->
-        <link rel="stylesheet" href="/sp_crm/Public/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/sp_crm/Public/css/index.css">
-        <link rel="shortcut icon" type="image/x-icon" href="/sp_crm/Public/image/favicon.ico" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>伙伴管理</title>                       <!--网页标题-->
+        <meta name="description" content="">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="">    <!--搜索关键词-->
+        <link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
+ 		<link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
+ 		<link rel="shortcut icon" type="image/x-icon" href="/SmallCrm/Public/image/favicon.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 	</head>
 <body>
-	<!-- <nav>
+<!-- <nav>
     <span><a href="<?php echo U('/Home/Index/index');?>">首页</a></span>
     <span>|</span>
   	<span><a href="<?php echo U('/Home/Customer/seecustomer');?>">客户查看</a></span>
@@ -41,8 +41,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="/sp_crm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
-      <img src="/sp_crm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/SmallCrm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/SmallCrm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -109,49 +109,73 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    <form action="<?php echo U('/Home/Customer/delcustomerform');?>" method="post">
-        <div class="container">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center">#</p></div>
-                        <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center">客户编号</p></div>
-                        <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center"><?php echo ($system["0"]["value1"]); ?></p></div>
-                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center"><?php echo ($system["0"]["value2"]); ?></p></div>
-                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center"><?php echo ($system["0"]["value3"]); ?></p></div>
-                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center"><?php echo ($system["0"]["value4"]); ?></p></div>
-                        <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center"><?php echo ($system["0"]["value5"]); ?></p></div>
-                        <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center"><?php echo ($system["0"]["value6"]); ?></p></div>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <?php if(is_array($result)): foreach($result as $key=>$v): ?><div class="row">
-                            <div class="col-xs-12 col-sm-3 col-md-1">
-                                <p class="text-center">
-                                    <label><input type="checkbox" name="delid[]" id="id" value="<?php echo ($v["id"]); ?>"></label>
-                                </p>
-                            </div>
-                            <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center"><?php echo ($v["id"]); ?></p></div>
-                            <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center"><?php echo ($v["gname"]); ?></p></div>
-                            <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center"><?php echo ($v["name"]); ?></p></div>
-                            <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center"><?php echo ($v["tel"]); ?></p></div>
-                            <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center"><?php echo ($v["ca"]); ?></p></div>
-                            <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center"><?php echo ($v["location"]); ?></p></div>
-                            <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center">公<?php echo ($v["address"]); ?></p></div>
-                        </div><?php endforeach; endif; ?>
-                </div>
-                <div class="panel-footer">
-                    <input class="btn btn-danger" type="submit" value="删除">
-                    <?php echo ($page); ?>
-                </div>
-            </div>
-        </div>
-    </form>
+	<form action="<?php echo U('/Home/Partner/deluserform');?>" method="post">
+		<div class="container">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-1 col-sm-1 col-md-1"><p class="text-center">#</p></div>
+						<div class="col-xs-1 col-sm-1 col-md-1"><p class="text-center">ID</p></div>
+						<div class="col-xs-2 col-sm-2 col-md-2"><p class="text-center">账号</p></div>
+						<div class="col-xs-2 col-sm-2 col-md-2"><p class="text-center">昵称</p></div>
+						<div class="col-xs-2 col-sm-2 col-md-2"><p class="text-center">登录时间</p></div>
+						<div class="col-xs-2 col-sm-2 col-md-2"><p class="text-center">登录IP</p></div>
+						<div class="col-xs-2 col-sm-2 col-md-2"><p class="text-center">是否具有管理权限</p></div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<?php if(is_array($result)): foreach($result as $key=>$v): ?><div class="row">
+						<div class="col-xs-1 col-sm-1 col-md-1">
+							<p class="text-center">
+								<label><input type="checkbox" name="delid[]" id="id" value="<?php echo ($v["id"]); ?>"></label>
+							</p>
+						</div>
+						<div class="col-xs-1 col-sm-1 col-md-1">
+						<p class="text-center"><?php echo ($v["id"]); ?></p>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2">
+						<p class="text-center"><?php echo ($v["username"]); ?></p>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2">
+						<p class="text-center"><?php echo ($v["name"]); ?></p>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2">
+						<p class="text-center"><?php echo (date("Y-m-d H:i",$v["logintime"])); ?></p>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2">
+						<p class="text-center"><?php echo ($v["loginip"]); ?></p>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-2">
+							<p class="text-center">	
+								<?php if($v["jd"] == 1): ?><span class="glyphicon glyphicon-ok">
+									<?php else: ?>
+										<span class="glyphicon glyphicon-remove"><?php endif; ?>
+							</p>
+						</div>
+					</div><?php endforeach; endif; ?>
+				</div>
+				<div class="panel-footer">
+					<div class="btn-toolbar btngroup">
+						<div class="btn-group btnclass">
+							<input class="btn btn-danger" type="submit" value="删除" name="del">
+						</div>
+						<div class="btn-group btnclass" style="display:block-inline">
+							<input class="btn btn-success" type="submit" value="给予管理权限" name="addjd" style="display:<?php echo ($iadmin); ?>;">
+							<input class="btn btn-warning" type="submit" value="取消管理权限" name="deljd" style="display:<?php echo ($iadmin); ?>;">
+						</div>
+						<div class="btn-group">
+							<?php echo ($page); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 <footer>
 	<div class="container">
 		<div class="row">
 				<div class="col-md-8">
-					<p>© 四川众合世纪网络技术有限公司，版本号：v1.32 Beta</p>
+					<p>© 四川众合世纪网络技术有限公司，版本号：v1.40 Beta</p>
 				</div>
 				<div class="col-md-4">
 					<p class="pull-right">Coding by Luoye~</p>
@@ -161,9 +185,9 @@
 	</div>
 </footer>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/sp_crm/Public/js/jquery.min.js"></script>
+<script src="/SmallCrm/Public/js/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="/sp_crm/Public/js/bootstrap.min.js"></script>
+<script src="/SmallCrm/Public/js/bootstrap.min.js"></script>		
 </body>
 </html>

@@ -106,6 +106,8 @@ Class CustomerController extends CommonController{
 	Public function inscustomer(){
 		$needadmin = needadmin();
 		$this->assign('needadmin',$needadmin);
+		$userid = session(uid);
+		$this->assign('userid',$userid);
 
 		$pid = 1;
 		$db = M('system');

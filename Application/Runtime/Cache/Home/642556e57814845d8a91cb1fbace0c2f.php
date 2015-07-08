@@ -7,9 +7,9 @@
 		<title>客户统计</title>                       <!--网页标题-->
         <meta name="description" content="客户统计">  <!--网页介绍-->
         <META NAME ="keywords" CONTENT="客户统计">    <!--搜索关键词-->
-        <link rel="stylesheet" href="/sp_crm/Public/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/sp_crm/Public/css/index.css">
-        <link rel="shortcut icon" type="image/x-icon" href="/sp_crm/Public/image/favicon.ico" />
+        <link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/SmallCrm/Public/image/favicon.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -41,8 +41,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="/sp_crm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
-      <img src="/sp_crm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/SmallCrm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/SmallCrm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -150,9 +150,9 @@
 	</div>
 </footer>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/sp_crm/Public/js/jquery.min.js"></script>
+<script src="/SmallCrm/Public/js/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="/sp_crm/Public/js/bootstrap.min.js"></script>
+<script src="/SmallCrm/Public/js/bootstrap.min.js"></script>
 </body>
 </html>

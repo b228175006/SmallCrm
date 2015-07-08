@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>客户查看</title>                       <!--网页标题-->
-        <meta name="description" content="客户查看">  <!--网页介绍-->
-        <META NAME ="keywords" CONTENT="客户查看">    <!--搜索关键词-->
-        <link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
-        <link rel="shortcut icon" type="image/x-icon"  href="/SmallCrm/Public/image/favicon.ico" />
+		<title>修改客户信息</title>                       <!--网页标题-->
+        <meta name="description" content="修改客户信息">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="修改客户信息">    <!--搜索关键词-->
+        <link rel="stylesheet" href="/smallcrm/Public/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/smallcrm/Public/css/index.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/smallcrm/Public/image/favicon.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -41,8 +41,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="/SmallCrm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
-      <img src="/SmallCrm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/smallcrm/Public/image/logo1_2.png" alt="" class="navbar-brand img-responsive">
+      <img src="/smallcrm/Public/image/logo2_2.png" alt="" class="navbar-brand img-responsive">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -109,83 +109,64 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    <div class="container">
-      <div class="row well well-sm">
-	<div class="col-xs-12 col-sm-6 col-md-4">
-		<form class="navbar-form navbar-left" role="search" action="<?php echo U('/Home/Search/searched');?>" method="post">
-			<div class="form-group">
-			  <input type="text" class="form-control" placeholder="搜索客户" name="searched">
-			</div>
-			  <input class="btn btn-success" type="submit" value="搜索">
-		</form>
-	</div>
-	<div class="col-xs-12 col-sm-6 col-md-8">
-		<form action="<?php echo U('/Home/Search/screening');?>" method="post" class="navbar-form navbar-right">
-			<div class="form-group">
-				<span>所属人：</span>
-				<select name="username" id="" class="form-control">
-					<option value="0">所有</option>
-					<?php if(is_array($result)): foreach($result as $key=>$v): if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; endforeach; endif; ?>
-				</select>
-				<span></span>
-				<span>添加日期：</span>
-				<input type="date" name="date1" id="">
-				<span>至</span>
-				<input type="date" name="date2" id="">
-				<input type="submit" value="筛选" class="btn btn-success">
-			</div>
-		</form>
-	</div>
-</div>
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value1"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value2"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value3"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value4"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value5"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value6"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属伙伴</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">添加时间</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">操作</p></div>
+	<form action="<?php echo U('/Home/Customer/inscustomerform');?>" method="post">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h4>修改客户信息</h4>
+              </div>
+              <div class="panel-body">
+                <div class="formgroup">
+                  <label for="gname" class="control-label"><?php echo ($system["0"]["value1"]); ?>：</label>
+                  <input type="text" name="gname" id="gname" value="<?php echo ($result["0"]["gname"]); ?>" class="form-control">
+                </div>
+                <div class="formgroup">
+                  <label for="name" class="control-label"><?php echo ($system["0"]["value2"]); ?>：</label>
+                  <input type="text" name="name" id="name" value="<?php echo ($result["0"]["name"]); ?>" class="form-control">
+                </div>
+                <div class="formgroup">
+                  <label for="tel" class="control-label"><?php echo ($system["0"]["value3"]); ?>：</label>
+                  <input type="text" name="tel" id="tel" value="<?php echo ($result["0"]["tel"]); ?>" class="form-control">
+                </div>
+                <div class="formgroup">
+                  <label for="ca" class="control-label"><?php echo ($system["0"]["value4"]); ?>：</label>
+                  <input type="text" name="ca" id="ca" value="<?php echo ($result["0"]["ca"]); ?>" class="form-control">
+                </div>
+                <div class="formgroup">
+                  <label for="location" class="control-label"><?php echo ($system["0"]["value5"]); ?>：</label>
+                  <input type="text" name="location" id="location" value="<?php echo ($result["0"]["location"]); ?>" class="form-control">
+                </div>
+                <div class="formgroup">
+                  <label for="address" class="control-label"><?php echo ($system["0"]["value6"]); ?>：</label>
+                  <input type="text" name="address" id="address" value="<?php echo ($result["0"]["address"]); ?>" class="form-control">
+                </div>
+                <div class="formgroup">
+                  <label for="uid" class="control-label">所属人：</label>
+                  <select name="uid" id="uid" class="form-control">
+                    <?php if(is_array($uid)): foreach($uid as $key=>$v): if($userid == $v.id): ?><!-- <option value="<?php echo ($v["id"]); ?>" selected="selected"><?php echo ($v["name"]); ?></option> -->
+                        <option value=""><?php echo ($userid); ?>+<?php echo ($v["id"]); ?></option>
+                      <?php else: ?>
+                        <option value="<?php echo ($v["id"]); ?>"><?php echo ($v["name"]); ?></option><?php endif; endforeach; endif; ?>
+                  </select> 
+                </div>
+                <div class="formgroup">
+                  <br>
+                  <input type="hidden" name="id"  value="<?php echo ($result["0"]["id"]); ?>">
+                  <input class="btn btn-info" type="submit" value="修改">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="panel-body">
-          <?php if(is_array($result)): foreach($result as $key=>$v): ?><div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
-                <a class="btn btn-default" href="<?php echo U('/Home/Customer/seeremarks',array('id'=>$v['id']));?>">
-                  <?php echo ($v["gname"]); ?>
-                </a></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["name"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center"><?php echo ($v["tel"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["ca"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["location"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["address"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center">
-                <?php if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): echo ($n["name"]); endif; endforeach; endif; ?>
-              </p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed "><p class="text-center"><?php echo (date("Y-m-d h:i",$v["date"])); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
-                <a class="btn btn-primary" href="<?php echo U('/Home/Customer/inscustomer',array('id'=>$v['id']));?>">
-                  修改</a>
-                <a class="btn btn-warning" href="<?php echo U('/Home/Customer/addseas',array('id'=>$v['id']));?>">
-                  丢进公海</a>
-                </p></div>
-            </div><?php endforeach; endif; ?>
-        </div>
-        <div class="panel-footer">
-          <a class="btn btn-success abottom" href="<?php echo U('/Home/Customer/seeseas');?>">查看公海</a>
-          <?php echo ($page); ?>
-        </div>
       </div>
-    </div>
+  	</form>
 <footer>
 	<div class="container">
 		<div class="row">
 				<div class="col-md-8">
-					<p>© 四川众合世纪网络技术有限公司，版本号：v1.40 Beta</p>
+					<p>© 四川众合世纪网络技术有限公司，版本号：v1.32 Beta</p>
 				</div>
 				<div class="col-md-4">
 					<p class="pull-right">Coding by Luoye~</p>
@@ -195,9 +176,9 @@
 	</div>
 </footer>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/SmallCrm/Public/js/jquery.min.js"></script>
+<script src="/smallcrm/Public/js/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="/SmallCrm/Public/js/bootstrap.min.js"></script>
+<script src="/smallcrm/Public/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,15 +1,15 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="utf-8">
 	<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>客户查看</title>                       <!--网页标题-->
-        <meta name="description" content="客户查看">  <!--网页介绍-->
-        <META NAME ="keywords" CONTENT="客户查看">    <!--搜索关键词-->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>公告管理</title>                       <!--网页标题-->
+        <meta name="description" content="公告管理">  <!--网页介绍-->
+        <META NAME ="keywords" CONTENT="公告管理">    <!--搜索关键词-->
         <link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/SmallCrm/Public/css/index.css">
-        <link rel="shortcut icon" type="image/x-icon"  href="/SmallCrm/Public/image/favicon.ico" />
+ 		<link rel="stylesheet" href="/SmallCrm/Public/css/notice/delnotice.css">
+ 		<link rel="shortcut icon" type="image/x-icon" href="/SmallCrm/Public/image/favicon.ico" />
         <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -109,78 +109,62 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    <div class="container">
-      <div class="row well well-sm">
-	<div class="col-xs-12 col-sm-6 col-md-4">
-		<form class="navbar-form navbar-left" role="search" action="<?php echo U('/Home/Search/searched');?>" method="post">
-			<div class="form-group">
-			  <input type="text" class="form-control" placeholder="搜索客户" name="searched">
+	<form action="<?php echo U('/Home/Index/delnoticeform');?>" method="post">
+		<div class="container">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-2 col-sm-2 col-md-1">
+							<p class="text-center">#</p>
+						</div>
+						<div class="col-xs-2 col-sm-2 col-md-1">
+							<p class="text-center">ID</p>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2">
+							<p class="text-center">发布人</p>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-2">
+							<p class="text-center">发布时间</p>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-6">
+							<p class="text-center">发布内容</p>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<?php if(is_array($result)): foreach($result as $key=>$v): ?><div class="row ">
+							<div class="col-xs-2 col-sm-2 col-md-1 notice-body">
+								<label><input type="checkbox" name="delid[]" id="id" value="<?php echo ($v["id"]); ?>"></label>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-1 notice-body">
+								<p class="text-center"><?php echo ($v["id"]); ?></p>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-2 notice-body">
+								<p class="text-center"><?php echo ($v["username"]); ?>(<?php echo ($v["name"]); ?>)</p>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-2 notice-body">
+								<p class="text-center"><?php echo (date("Y-m-d H:i",$v["addtime"])); ?></p>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-6 notice-body notice-text">
+								<p class="text-center"><?php echo ($v["text"]); ?></p>
+							</div>
+						</div><?php endforeach; endif; ?>
+				</div>
+				<div class="panel-footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-4 col-sm-4 col-md-4 col-offset-xs-2 col-offset-sm-2 col-offset-md-2">
+								<input class="btn btn-danger" type="submit" value="删除">
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-4">
+								<?php echo ($page); ?>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			  <input class="btn btn-success" type="submit" value="搜索">
-		</form>
-	</div>
-	<div class="col-xs-12 col-sm-6 col-md-8">
-		<form action="<?php echo U('/Home/Search/screening');?>" method="post" class="navbar-form navbar-right">
-			<div class="form-group">
-				<span>所属人：</span>
-				<select name="username" id="" class="form-control">
-					<option value="0">所有</option>
-					<?php if(is_array($result)): foreach($result as $key=>$v): if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; endforeach; endif; ?>
-				</select>
-				<span></span>
-				<span>添加日期：</span>
-				<input type="date" name="date1" id="">
-				<span>至</span>
-				<input type="date" name="date2" id="">
-				<input type="submit" value="筛选" class="btn btn-success">
-			</div>
-		</form>
-	</div>
-</div>
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value1"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value2"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value3"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value4"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value5"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value6"]); ?></p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属伙伴</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">添加时间</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">操作</p></div>
-          </div>
-        </div>
-        <div class="panel-body">
-          <?php if(is_array($result)): foreach($result as $key=>$v): ?><div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
-                <a class="btn btn-default" href="<?php echo U('/Home/Customer/seeremarks',array('id'=>$v['id']));?>">
-                  <?php echo ($v["gname"]); ?>
-                </a></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["name"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center"><?php echo ($v["tel"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["ca"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["location"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center"><?php echo ($v["address"]); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed"><p class="text-center">
-                <?php if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): echo ($n["name"]); endif; endforeach; endif; ?>
-              </p></div>
-              <div class="col-xs-12 col-sm-6 col-md-1 overflowed "><p class="text-center"><?php echo (date("Y-m-d h:i",$v["date"])); ?></p></div>
-              <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
-                <a class="btn btn-primary" href="<?php echo U('/Home/Customer/inscustomer',array('id'=>$v['id']));?>">
-                  修改</a>
-                <a class="btn btn-warning" href="<?php echo U('/Home/Customer/addseas',array('id'=>$v['id']));?>">
-                  丢进公海</a>
-                </p></div>
-            </div><?php endforeach; endif; ?>
-        </div>
-        <div class="panel-footer">
-          <a class="btn btn-success abottom" href="<?php echo U('/Home/Customer/seeseas');?>">查看公海</a>
-          <?php echo ($page); ?>
-        </div>
-      </div>
-    </div>
+		</div>
+	</form>	
 <footer>
 	<div class="container">
 		<div class="row">

@@ -13,12 +13,12 @@
  			document.getElementById('verifyImg').src='<?php echo U('/Home/Login/verify','','');?>'+'/'+timenow;  
 			}
 		</script>
-		<link rel="stylesheet" href="/sp_crm/Public/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/sp_crm/Public/css/login.css">
-		<link rel="shortcut icon" type="image/x-icon" href="/sp_crm/Public/image/favicon.ico" />
+		<link rel="stylesheet" href="/SmallCrm/Public/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/SmallCrm/Public/css/login.css">
+		<link rel="shortcut icon" type="image/x-icon" href="/SmallCrm/Public/image/favicon.ico" />
 		<style>
 			body{
-				background-image:url("/sp_crm/Public/image/<?php echo ($bg); ?>"); 
+				background-image:url("/SmallCrm/Public/image/<?php echo ($bg); ?>"); 
 				background-color:<?php echo ($color); ?>;
 			}
 		</style>
@@ -35,10 +35,10 @@
 	    	<div class="container">
 	    		<div class="row">
 	    			<div class="col-md-1 col-xs-2">
-	    				<img class="img-responsive" src="/sp_crm/Public/image/logo.png" alt="">
+	    				<img class="img-responsive" src="/SmallCrm/Public/image/logo.png" alt="">
 	    			</div>
 	    			<div class="col-md-1 col-xs-2">
-	    				<img class="img-responsive" src="/sp_crm/Public/image/logo2.png" alt="">
+	    				<img class="img-responsive" src="/SmallCrm/Public/image/logo2.png" alt="">
 	    			</div>
 	    		</div>
 	    	</div>
@@ -91,9 +91,9 @@
 	</div>
 </footer>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/sp_crm/Public/js/jquery.min.js"></script>
+<script src="/SmallCrm/Public/js/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="/sp_crm/Public/js/bootstrap.min.js"></script>
+<script src="/SmallCrm/Public/js/bootstrap.min.js"></script>
 </body>
 </html>
