@@ -224,6 +224,9 @@ Class CustomerController extends CommonController{
 		$page = new \Lib\Page($count);
 		$limit = $page->firstRow.','.$page->listRows;
 		$result = $db->where($uid)->limit($limit)->order('id DESC')->select();
+		$maxuid = $db->max('uid');
+		$maxid = $maxuid + 1;
+		$this->assign('maxid',$maxid);
 		$this->assign('result',$result);
 		$dbc = M('login');
 		$username = $dbc->field('id,name,username')->select();
@@ -412,6 +415,55 @@ Class CustomerController extends CommonController{
 			$result = $db->where($where)->data($data)->save();
 	    	if($result){
 			$this->success('修改成功',U('/Home/Customer/seeseas'));
+			}else{
+			$this->error('修改失败');
+			}
+		// }
+	}
+	//成交
+	//改为成交客户
+	Public function addsuccess(){
+		if(!IS_GET) E('无效的页面');
+		// $uid = 0;
+		// $data = array(
+		// 	'uid'=>$uid
+		// 	);
+		$data['success'] = '1';
+		$where=array(
+			'id'=>I('id'));
+		$db = M('customer');
+		// $customer = D('Customer');
+		// if (!$customer->create()){
+		//    $err = $customer->getError();
+		// 	$this->error("$err");
+		// }else{
+			$result = $db->where($where)->data($data)->save();
+	    	if($result){
+			$this->success('修改成功',U('/Home/Customer/seecustomer'));
+			}else{
+			$this->error('修改失败');
+			}
+		// }	
+	}
+	//取消成交
+	Public function pickupsuccess(){
+		if(!IS_GET) E('无效的页面');
+		// $uid = 0;
+		// $data = array(
+		// 	'uid'=>$uid
+		// 	);
+		$data['success'] = '0';
+		$where=array(
+			'id'=>I('id') );
+		$db = M('customer');
+		// $customer = D('Customer');
+		// if (!$customer->create()){
+		//    $err = $customer->getError();
+		// 	$this->error("$err");
+		// }else{
+			$result = $db->where($where)->data($data)->save();
+	    	if($result){
+			$this->success('修改成功',U('/Home/Customer/seecustomer'));
 			}else{
 			$this->error('修改失败');
 			}

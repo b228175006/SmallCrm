@@ -111,7 +111,7 @@
 </nav>
     <div class="container">
       <div class="row well well-sm">
-	<div class="col-xs-12 col-sm-6 col-md-4">
+	<div class="col-xs-12 col-sm-4 col-md-4">
 		<form class="navbar-form navbar-left" role="search" action="<?php echo U('/Home/Search/searched');?>" method="post">
 			<div class="form-group">
 			  <input type="text" class="form-control" placeholder="搜索客户" name="searched">
@@ -119,13 +119,21 @@
 			  <input class="btn btn-success" type="submit" value="搜索">
 		</form>
 	</div>
-	<div class="col-xs-12 col-sm-6 col-md-8">
+
+
+<!-- 	<div class="col-xs-12 col-sm-8 col-md-8">
 		<form action="<?php echo U('/Home/Search/screening');?>" method="post" class="navbar-form navbar-right">
 			<div class="form-group">
+				<span>是否合作：</span>
+				<select name="success" id="" class="form-control">
+					<option value="all">所有</option>
+					<option value="1">已合作</option>
+					<option value="0">未合作</option>
+				</select>
 				<span>所属人：</span>
 				<select name="username" id="" class="form-control">
 					<option value="0">所有</option>
-					<?php if(is_array($result)): foreach($result as $key=>$v): if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; endforeach; endif; ?>
+					<?php $__FOR_START_1689167568__=1;$__FOR_END_1689167568__=$maxid;for($i=$__FOR_START_1689167568__;$i < $__FOR_END_1689167568__;$i+=1){ if(is_array($username)): foreach($username as $key=>$n): if(($i == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; } ?>
 				</select>
 				<span></span>
 				<span>添加日期：</span>
@@ -135,25 +143,81 @@
 				<input type="submit" value="筛选" class="btn btn-success">
 			</div>
 		</form>
+	</div> -->
+
+
+
+
+
+
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	  筛选
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">筛选</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form action="<?php echo U('/Home/Search/screening');?>" method="post" class="navbar-form navbar-right">
+				<div class="form-group">
+					<span>是否合作：</span>
+					<select name="success" id="" class="form-control">
+						<option value="all">所有</option>
+						<option value="1">已合作</option>
+						<option value="0">未合作</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<span>所属人：</span>
+					<select name="username" id="" class="form-control">
+						<option value="0">所有</option>
+						<?php $__FOR_START_299312666__=1;$__FOR_END_299312666__=$maxid;for($i=$__FOR_START_299312666__;$i < $__FOR_END_299312666__;$i+=1){ if(is_array($username)): foreach($username as $key=>$n): if(($i == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; } ?>
+					</select>
+				</div>
+				<div class="form-group">
+					<span>添加日期：</span>
+					<input type="date" name="date1" id="">
+					<span>至</span>
+					<input type="date" name="date2" id="">
+					
+				</div>
+			
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <input type="submit" value="筛选" class="btn btn-success">
+	      </div>
+	      </form>
+	    </div>
+	  </div>
 	</div>
+	<!-- end -->
 </div>
 
       <div class="panel panel-info">
         <div class="panel-heading">
           <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">客户名称</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">联系人</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">联系电话</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属公司</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所在地</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">公司地址</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value1"]); ?></p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value2"]); ?></p></div>
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center"><?php echo ($system["0"]["value3"]); ?></p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value4"]); ?></p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value5"]); ?></p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center"><?php echo ($system["0"]["value6"]); ?></p></div>
             <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属伙伴</p></div>
             <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">添加时间</p></div>
             <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">操作</p></div>
           </div>
         </div>
         <div class="panel-body">
-          <?php if(is_array($searched)): foreach($searched as $key=>$v): ?><div class="row">
+          <?php if(is_array($searched)): foreach($searched as $key=>$v): if(($v['success'] == 1 )): ?><div class="row well well-sm">
+            <?php else: ?>
+              <div class="row"><?php endif; ?>
               <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
                 <a class="btn btn-default" href="<?php echo U('/Home/Customer/seeremarks',array('id'=>$v['id']));?>">
                   <?php echo ($v["gname"]); ?>
@@ -187,7 +251,7 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-md-8">
-					<p>© 四川众合世纪网络技术有限公司，版本号：v1.40 Beta</p>
+					<p>© 四川众合世纪网络技术有限公司，版本号：v1.41 Beta</p>
 				</div>
 				<div class="col-md-4">
 					<p class="pull-right">Coding by Luoye~</p>

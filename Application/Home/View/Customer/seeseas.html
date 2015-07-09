@@ -35,7 +35,11 @@
         </div>
         <div class="panel-body">
           <foreach name="result" item="v">
-            <div class="row">
+          <if condition="($v['success'] eq 1 )"> 
+              <div class="row well well-sm">
+            <else/>
+              <div class="row">
+            </if>
               <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">
                 <a class="btn btn-default" href="{:U('/Home/Customer/seeremarks',array('id'=>$v['id']))}">
                   {$v.gname}

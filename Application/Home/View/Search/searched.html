@@ -21,13 +21,13 @@
       <include file="Public/search" />
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">客户名称</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">联系人</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">联系电话</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属公司</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所在地</p></div>
-            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">公司地址</p></div>
+           <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">{$system.0.value1}</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$system.0.value2}</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">{$system.0.value3}</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$system.0.value4}</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$system.0.value5}</p></div>
+            <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">{$system.0.value6}</p></div>
             <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">所属伙伴</p></div>
             <div class="col-xs-12 col-sm-6 col-md-1"><p class="text-center">添加时间</p></div>
             <div class="col-xs-12 col-sm-6 col-md-2"><p class="text-center">操作</p></div>
@@ -35,7 +35,11 @@
         </div>
         <div class="panel-body">
           <foreach name="searched" item="v">
-            <div class="row">
+            <if condition="($v['success'] eq 1 )"> 
+              <div class="row well well-sm">
+            <else/>
+              <div class="row">
+            </if>
               <div class="col-xs-12 col-sm-6 col-md-2 overflowed"><p class="text-center">
                 <a class="btn btn-default" href="{:U('/Home/Customer/seeremarks',array('id'=>$v['id']))}">
                   {$v.gname}

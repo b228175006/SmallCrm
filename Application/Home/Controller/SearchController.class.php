@@ -34,6 +34,16 @@ Class SearchController extends CommonController{
 		$username = $dbc->field('id,name,username')->select();
 		$result = $db->field('uid')->select();
 		$this->assign('result',$result);
+		$maxuid = $db->max('uid');
+		$maxid = $maxuid + 1;
+		$this->assign('maxid',$maxid);
+		$dba = M('system');
+		$pid = 1;
+		$where = array(
+			'pid' => $pid	
+			);
+		$system = $dba -> where($where)->select();
+		$this->assign('system',$system);
 		$this->assign('username',$username);
 		$this->assign('searched',$searched);
 		$this->assign('needadmin',needadmin());
@@ -93,12 +103,34 @@ Class SearchController extends CommonController{
 		}else{
 			$date['uid'] = array('egt',0);
 		}
+		switch (I('success')) {
+			case 'all':
+				$date['success'] = array('egt',0);
+				break;
+			case '1':
+				$date['success'] = '1';
+				break;
+			case '0':
+				$date['success'] = '0';
+				break;	
+			default:
+				$date['success'] = array('egt',0);
+				break;
+		}
 		$date['_logic'] = 'and';
 		$searched = $db->where(array($date))->limit($limit)->order('id DESC')->/*fetchSql(true)->*/select();
 		$dbc = M('login');
 		$username = $dbc->field('id,name,username')->select();
-		$result = $db->field('uid')->select();
-		$this->assign('result',$result);
+		$maxuid = $db->max('uid');
+		$maxid = $maxuid + 1;
+		$this->assign('maxid',$maxid);
+		$dba = M('system');
+		$pid = 1;
+		$where = array(
+			'pid' => $pid	
+			);
+		$system = $dba -> where($where)->select();
+		$this->assign('system',$system);
 		$this->assign('username',$username);
 		$this->assign('searched',$searched);
 		$this->assign('needadmin',needadmin());

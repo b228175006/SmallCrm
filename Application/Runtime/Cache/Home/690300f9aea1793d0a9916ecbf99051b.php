@@ -128,7 +128,7 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-md-8">
-					<p>© 四川众合世纪网络技术有限公司，版本号：v1.40 Beta</p>
+					<p>© 四川众合世纪网络技术有限公司，版本号：v1.41 Beta</p>
 				</div>
 				<div class="col-md-4">
 					<p class="pull-right">Coding by Luoye~</p>

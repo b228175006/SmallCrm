@@ -114,10 +114,15 @@
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <p class="text-center">
-                            <a class="btn btn-info" href="<?php echo U('/Home/Customer/inscustomer',array('id'=>$result['0']['id']));?>">修改</a>
-                            <a class="btn btn-success" href="<?php echo U('/Home/Customer/addremarks',array('id' =>$result['0']['id']));?>">添加备注</a></p>
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            <div class=" btn btn-group">
+                            <a class="btn btn-warning" href="<?php echo U('/Home/Customer/inscustomer',array('id'=>$result['0']['id']));?>">修改</a>
+                            <a class="btn btn-info" href="<?php echo U('/Home/Customer/addremarks',array('id' =>$result['0']['id']));?>">添加备注</a>
+                            <?php if(($result['0']['success'] == 0 )): ?><a class="btn btn-success" href="<?php echo U('/Home/Customer/addsuccess',array('id' =>$result['0']['id']));?>">合作</a>
+                            <?php else: ?>
+                                <a class="btn btn-danger" href="<?php echo U('/Home/Customer/pickupsuccess',array('id' =>$result['0']['id']));?>">取消合作</a><?php endif; ?>
+                            
+                            </div>
                         </div>
                         <!-- <div class="col-xs-12 col-sm-3 col-md-2"><p class="text-center">客户名称</p></div>
                         <div class="col-xs-12 col-sm-3 col-md-1"><p class="text-center">联系人</p></div>
@@ -183,7 +188,7 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-md-8">
-					<p>© 四川众合世纪网络技术有限公司，版本号：v1.40 Beta</p>
+					<p>© 四川众合世纪网络技术有限公司，版本号：v1.41 Beta</p>
 				</div>
 				<div class="col-md-4">
 					<p class="pull-right">Coding by Luoye~</p>
