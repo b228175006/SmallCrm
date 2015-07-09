@@ -119,7 +119,9 @@
 			  <input class="btn btn-success" type="submit" value="搜索">
 		</form>
 	</div>
-	<div class="col-xs-12 col-sm-8 col-md-8">
+
+
+<!-- 	<div class="col-xs-12 col-sm-8 col-md-8">
 		<form action="<?php echo U('/Home/Search/screening');?>" method="post" class="navbar-form navbar-right">
 			<div class="form-group">
 				<span>是否合作：</span>
@@ -131,7 +133,7 @@
 				<span>所属人：</span>
 				<select name="username" id="" class="form-control">
 					<option value="0">所有</option>
-					<?php $__FOR_START_509489915__=1;$__FOR_END_509489915__=$maxid;for($i=$__FOR_START_509489915__;$i < $__FOR_END_509489915__;$i+=1){ if(is_array($username)): foreach($username as $key=>$n): if(($i == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; } ?>
+					<?php $__FOR_START_1305897489__=1;$__FOR_END_1305897489__=$maxid;for($i=$__FOR_START_1305897489__;$i < $__FOR_END_1305897489__;$i+=1){ if(is_array($username)): foreach($username as $key=>$n): if(($i == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; } ?>
 				</select>
 				<span></span>
 				<span>添加日期：</span>
@@ -141,7 +143,7 @@
 				<input type="submit" value="筛选" class="btn btn-success">
 			</div>
 		</form>
-	</div>
+	</div> -->
 
 
 
@@ -149,12 +151,12 @@
 
 
 	<!-- Button trigger modal -->
-<!-- 	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 	  筛选
-	</button> -->
+	</button>
 
 	<!-- Modal -->
-	<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -175,7 +177,7 @@
 					<span>所属人：</span>
 					<select name="username" id="" class="form-control">
 						<option value="0">所有</option>
-						<?php if(is_array($result)): foreach($result as $key=>$v): if(is_array($username)): foreach($username as $key=>$n): if(($v['uid'] == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; endforeach; endif; ?>
+						<?php $__FOR_START_1498687586__=1;$__FOR_END_1498687586__=$maxid;for($i=$__FOR_START_1498687586__;$i < $__FOR_END_1498687586__;$i+=1){ if(is_array($username)): foreach($username as $key=>$n): if(($i == $n['id'])): ?><option value="<?php echo ($v['uid']); ?>"><?php echo ($n["name"]); ?></option><?php endif; endforeach; endif; } ?>
 					</select>
 				</div>
 				<div class="form-group">
@@ -183,16 +185,18 @@
 					<input type="date" name="date1" id="">
 					<span>至</span>
 					<input type="date" name="date2" id="">
-					<input type="submit" value="筛选" class="btn btn-success">
+					
 				</div>
-			</form>
+			
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <input type="submit" value="筛选" class="btn btn-success">
 	      </div>
+	      </form>
 	    </div>
 	  </div>
-	</div> -->
+	</div>
 	<!-- end -->
 </div>
 
@@ -246,7 +250,7 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-md-8">
-					<p>© 四川众合世纪网络技术有限公司，版本号：v1.41 Beta</p>
+					<p>© 四川众合世纪网络技术有限公司，版本号：v1.53 Beta</p>
 				</div>
 				<div class="col-md-4">
 					<p class="pull-right">Coding by Luoye~</p>
