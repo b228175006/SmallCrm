@@ -58,16 +58,15 @@
 	      <div class="modal-body">
 	        <form action="{:U('/Home/Search/screening')}" method="post" class="navbar-form navbar-right">
 				<div class="form-group">
-					<span>是否合作：</span>
-					<select name="success" id="" class="form-control">
+					<label for="success">是否合作：</label>
+					<select name="success" id="success" class="form-control">
 						<option value="all">所有</option>
 						<option value="1">已合作</option>
 						<option value="0">未合作</option>
 					</select>
-				</div>
-				<div class="form-group">
-					<span>所属人：</span>
-					<select name="username" id="" class="form-control">
+
+					<label for="username">所属人：</label>
+					<select name="username" id="username" class="form-control">
 						<option value="0">所有</option>
 						<for start="1" end="$maxid">
 							<foreach name="username" item="n">
@@ -77,10 +76,10 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<span>添加日期：</span>
-					<input type="date" name="date1" id="">
-					<span>至</span>
-					<input type="date" name="date2" id="">
+					<label for"date1">添加日期：</label>
+					<input type="date" name="date1" id="date1" class="form-control">
+					<label for"date2">至：</label>
+					<input type="date" name="date2" id="date2" class="form-control">
 					
 				</div>
 			
